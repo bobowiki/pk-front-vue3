@@ -1,13 +1,15 @@
-<script setup lang="ts">
-import { RouterView } from 'vue-router'
-</script>
-
 <template>
-  <div class="flex">
-    <router-link to="/">home</router-link>
-    <router-link to="/about">about</router-link>
-  </div>
   <RouterView />
 </template>
-
+<script setup lang="ts">
+import { useThemeStore } from './store/useThemeStore'
+const themeStore = useThemeStore()
+useResizeObserver(document.body, () => {
+  const width = window.innerWidth
+  const contentWidth = 1200
+  themeStore.$patch({
+    rate: width < 1200 ? +(width / contentWidth).toFixed(2) : 1
+  })
+})
+</script>
 <style scoped></style>
