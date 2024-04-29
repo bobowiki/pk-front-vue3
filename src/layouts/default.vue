@@ -22,10 +22,14 @@
     </Container>
   </div>
   <router-view></router-view>
-  <div class="h-[1200px]"></div>
+  <div class="h-100"></div>
   <div>
-    <div class="mobile-hide">default foot</div>
-    <div class="hidden mobile">mobile foot</div>
+    <div class="mobile-hide">
+      <DefaultFooter icp="IP备案信息"></DefaultFooter>
+    </div>
+    <div class="hidden mobile">
+      <Foot></Foot>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
