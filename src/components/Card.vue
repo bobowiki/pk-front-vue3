@@ -1,12 +1,16 @@
 <template>
   <div :class="cardClass">
-    <div :class="imageClass" :style="{ backgroundImage: `url(${image})` }" v-if="image"></div>
+    <div
+      :class="imageClass"
+      :style="{ backgroundImage: `url(${image})` }"
+      v-if="image"
+    ></div>
     <div v-else :class="[icon, 'w-20 h-20']"></div>
     <div v-if="title || subTitle" :class="titleClass">
       <p class="text-lg text-dark-300 text-bold pb-2">{{ title }}</p>
       <p class="text-sm text-dark-100 font-300">{{ subTitle }}</p>
     </div>
-    <slot :item="{ image, icon, title, subTitle, url }"></slot>
+    <slot :item="{ image, icon, title, subTitle, url }" />
   </div>
 </template>
 
@@ -45,7 +49,10 @@ const imageClass = computed(() => {
   if (!props.title && !props.subTitle && props.imageType === 'rounded') {
     return defaultClass + 'h-60! rounded'
   } else if (props.imageType === 'avatar') {
-    return defaultClass + 'h-20! w-20! rounded-50% self-center absolute top-0 translate-y-[-50%]'
+    return (
+      defaultClass +
+      'h-20! w-20! rounded-50% self-center absolute top-0 translate-y-[-50%]'
+    )
   }
 
   return defaultClass + 'h-40!'

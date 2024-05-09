@@ -11,14 +11,37 @@
       }
     </script> -->
   </head>
+  <style>
+    .container {
+      display: grid;
+      grid-template-rows: 100px 150px 150px 150px;
+      grid-template-columns: 50% 50%;
+    }
+    .item {
+      width: 100px;
+      height: 100px;
+      border: 1px solid red;
+    }
+  </style>
   <body>
-    <div id="app"></div>
+    <div class="container">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <!-- <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
      <script>
       if (/iPhone|Android|Windows Phone/i.test(navigator.userAgent)) {
        document.body.classList.add('mobile-device')
       }
-    </script>
+    </script> -->
     <!-- <script>
       function setFontSize() {
         document.documentElement.style.fontSize = document.documentElement.clientWidth / 1920 * 16 + 'px'

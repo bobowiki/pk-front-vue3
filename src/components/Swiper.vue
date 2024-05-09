@@ -12,11 +12,18 @@
   >
     <swiper-slide v-for="(item, index) in items" :key="index">
       <slot :item="item">
-        <div class="bg-image" :style="{ backgroundImage: `url(${item.image})` }">
+        <div
+          class="bg-image"
+          :style="{ backgroundImage: `url(${item.image})` }"
+        >
           <Container class="h-full">
             <div class="flex flex-col justify-center items-start">
-              <p class="text-xl sm:text-4xl text-4xl font-bold text-white">{{ item.title }}</p>
-              <p class="text-sm sm:text-xl text-gray-100 pt-4">{{ item.subTitle }}</p>
+              <p class="text-xl sm:text-4xl text-4xl font-bold text-white">
+                {{ item.title }}
+              </p>
+              <p class="text-sm sm:text-xl text-gray-100 pt-4">
+                {{ item.subTitle }}
+              </p>
             </div>
           </Container>
         </div>
@@ -55,6 +62,7 @@ const props = defineProps({
   }
 })
 
+const emits = defineEmits(['change'])
 function getClassAndStyle(str: string) {
   // props.height
   // 如果height的值包含rem，px，em这返回{string:str,class: ''}
@@ -68,8 +76,9 @@ function getClassAndStyle(str: string) {
 const onSwiper = (swiper: SwiperType) => {
   console.log(swiper)
 }
-const onSlideChange = () => {
-  console.log('slide change')
+const onSlideChange = (e) => {
+  console.log('slide change', e)
+  emits('change', e)
 }
 
 const modules = [Navigation, Pagination]

@@ -22,7 +22,7 @@
     </Container>
   </div>
   <router-view></router-view>
-  <div class="h-100"></div>
+  <!-- <div class="h-100"></div> -->
   <div>
     <div class="mobile-hide">
       <DefaultFooter icp="IP备案信息"></DefaultFooter>
